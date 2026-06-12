@@ -1,0 +1,52 @@
+# APIGuardian Default Configuration
+
+# Target configuration
+target: ""
+
+# Modules to run
+modules:
+  - all
+
+# Safety settings
+enable_destructive: false
+
+# Timeouts
+timeout: 300
+request_timeout: 30
+
+# Concurrency
+max_concurrent: 5
+
+# Rate limiting (seconds between requests)
+rate_limit: 0.1
+
+# Report settings
+report_format:
+  - json
+  - html
+report_dir: /app/backend/reports
+
+# Fuzzer settings
+fuzzers:
+  payload:
+    max_payloads: 100
+    include_sqli: true
+    include_xss: true
+    include_lfi: true
+
+# Logging
+log_level: INFO
+log_json: false
+
+# Database
+database:
+  path: /app/backend/apiguardian.db
+
+# Integrations (mock by default)
+integrations:
+  threat_intel:
+    default_mode: mock
+  siem:
+    default_mode: mock
+  messaging:
+    default_mode: mock
